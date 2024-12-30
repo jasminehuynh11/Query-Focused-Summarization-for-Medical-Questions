@@ -3,17 +3,6 @@
 This repository presents a machine learning project focusing on query-focused summarization in the medical domain. The objective is to identify relevant sentences from medical publications that answer specific medical questions. The project utilizes deep learning models, including Siamese neural networks, LSTMs, and more, to perform this task effectively.
 
 ---
-
-## Table of Contents
-1. [Overview](#overview)
-2. [Project Workflow](#project-workflow)
-3. [Implemented Models](#implemented-models)
-4. [Setup and Usage](#setup-and-usage)
-5. [Results and Analysis](#results-and-analysis)
-6. [Future Enhancements](#future-enhancements)
-
----
-
 ## Overview
 
 Medical query-focused summarization is a challenging task due to the complexity of natural language and the need for precise identification of relevant content. This project builds on data derived from the [BioASQ Challenge](http://www.bioasq.org/), processing a dataset of medical questions and associated sentences labeled for relevance.
