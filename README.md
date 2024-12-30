@@ -1,8 +1,19 @@
 # Query-Focused Summarization for Medical Questions
 
-This repository presents a machine learning project focusing on query-focused summarization in the medical domain. The objective is to identify relevant sentences from medical publications that answer specific medical questions. The project utilizes deep learning models, including Siamese neural networks, LSTMs, and more, to perform this task effectively.
+This repository presents a machine learning project focusing on query-focused summarization in the medical domain. The objective is to identify relevant sentences from medical publications that answer specific medical questions. The project utilizes deep learning models, including Siamese neural networks, LSTMs, and BERT-based models, to perform this task effectively.
 
 ---
+
+## Table of Contents
+1. [Overview](#overview)
+2. [Project Workflow](#project-workflow)
+3. [Implemented Models](#implemented-models)
+4. [Setup and Usage](#setup-and-usage)
+5. [Results and Analysis](#results-and-analysis)
+6. [Future Enhancements](#future-enhancements)
+
+---
+
 ## Overview
 
 Medical query-focused summarization is a challenging task due to the complexity of natural language and the need for precise identification of relevant content. This project builds on data derived from the [BioASQ Challenge](http://www.bioasq.org/), processing a dataset of medical questions and associated sentences labeled for relevance.
@@ -19,15 +30,15 @@ Medical query-focused summarization is a challenging task due to the complexity 
 - **Dataset**: BioASQ-derived, preprocessed CSV format with questions, sentences, and binary relevance labels.
 - **Preprocessing**:
   - Generate balanced triplets (anchor, positive, and negative samples).
-  - Convert text data to TF-IDF vectors.
+  - Convert text data to embeddings using appropriate methods (e.g., TF-IDF, BERT).
 
 ### 2. Model Development
 - **Models Implemented**:
   - Siamese Neural Networks
   - LSTM-based Networks
-  - Custom distance layers for relevance scoring.
+  - Transformer-based (BERT) Networks
 - **Optimization**:
-  - Evaluate configurations of hidden layers and LSTM units.
+  - Evaluate configurations of hidden layers, LSTM units, and BERT parameters.
   - Use F1-score as the primary evaluation metric.
 
 ---
@@ -47,7 +58,16 @@ Medical query-focused summarization is a challenging task due to the complexity 
 - **Performance**:
   - Best F1 Score: 0.6392 with `36 LSTM units` and `(32, 32, 32)` hidden layers.
 
-### 3. Custom Summarization Function
+### 3. BERT-Based Transformer Model
+- **Architecture**:
+  - Pretrained BERT for embedding extraction.
+  - Fully connected layers for classification.
+  - Fine-tuned on medical query-focused summarization data.
+- **Performance**:
+  - Demonstrated improvement in capturing complex semantic relationships.
+  - F1 Score: Pending final evaluation during experiments.
+
+### 4. Custom Summarization Function
 - Extracts the top `n` most relevant sentences for each question based on model predictions.
 
 ---
@@ -57,7 +77,7 @@ Medical query-focused summarization is a challenging task due to the complexity 
 ### Prerequisites
 - Python 3.8+
 - TensorFlow 2.8+
-- Keras
+- Hugging Face Transformers
 - Pandas, NumPy, Scikit-learn
 
 ### Installation
